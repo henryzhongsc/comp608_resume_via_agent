@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fred Rice — Resume (Amazon SDE)</title>
+<style>
+  @page { size: 8.5in 11in; margin: 0.55in 0.65in; }
+
+  :root {
+    --ink: #111;
+    --muted: #444;
+    --rule: #999;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: #d8d8d8;
+    color: var(--ink);
+    font-family: "Charter", "Georgia", "Times New Roman", serif;
+    font-size: 10.4pt;
+    line-height: 1.34;
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 24px auto;
+    padding: 0.55in 0.65in;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  }
+
+  header { text-align: center; margin-bottom: 14px; }
+
+  h1 {
+    font-size: 21pt;
+    font-weight: 600;
+    letter-spacing: .02em;
+    margin: 0 0 4px;
+  }
+
+  .contact {
+    font-size: 9.4pt;
+    color: var(--muted);
+  }
+  .contact span { white-space: nowrap; }
+  .sep { padding: 0 5px; color: var(--rule); }
+
+  h2 {
+    font-size: 10.4pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    margin: 15px 0 5px;
+    padding-bottom: 2px;
+    border-bottom: .8px solid var(--rule);
+  }
+
+  .entry { margin-bottom: 9px; }
+  .entry:last-child { margin-bottom: 0; }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .role { font-weight: 700; }
+  .org { font-style: italic; }
+  .when { color: var(--muted); font-size: 9.6pt; white-space: nowrap; }
+  .where { color: var(--muted); font-size: 9.6pt; font-style: italic; }
+
+  ul { margin: 4px 0 0; padding-left: 16px; }
+  li { margin-bottom: 2.5px; }
+  li::marker { color: var(--rule); }
+
+  .tech { color: var(--muted); font-size: 9.6pt; font-style: italic; }
+
+  @media print {
+    body { background: #fff; font-size: 10.4pt; }
+    .page { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>Fred Rice</h1>
+    <div class="contact">
+      <span>Houston, TX</span><span class="sep">·</span><span>(713) 555-0142</span><span class="sep">·</span><span>frice@rice.edu</span><span class="sep">·</span><span>github.com/fried-rice</span><span class="sep">·</span><span>grainofsalt.dev</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Education</h2>
+
+    <div class="entry">
+      <div class="row">
+        <div><span class="role">M.S. Computer Science</span>, <span class="org">Rice University</span></div>
+        <div class="when">Aug 2025 – May 2027 (expected)</div>
+      </div>
+      <div class="where">Houston, TX</div>
+    </div>
+
+    <div class="entry">
+      <div class="row">
+        <div><span class="role">B.S. Computer Science</span>, <span class="org">Rice University</span></div>
+        <div class="when">Aug 2021 – May 2025</div>
+      </div>
+      <div class="where">Houston, TX</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="row">
+        <div><span class="role">Machine Learning Engineer Intern</span>, <span class="org">NBer</span></div>
+        <div class="when">Jun 2026 – Aug 2026</div>
+      </div>
+      <div class="where">San Francisco, CA</div>
+      <ul>
+        <li>Built a dynamic membership-benefits prototype end to end &mdash; feature pipeline, ranking model, and the service that applies a benefit at order time &mdash; piloted to ~60,000 members across two metros.</li>
+        <li>Implemented that service in Python behind gRPC and Protocol Buffers, containerized and deployed to Kubernetes via Helm, with a Redis cache invalidated by a Kafka consumer made idempotent under at-least-once delivery.</li>
+        <li>Load-tested with Locust before rollout, tracing a p99 breach at 3&times; expected QPS to per-request Redis connections; the service fails open so a slow dependency never blocks checkout.</li>
+        <li>Found 81% of members never answered the push, making the default decisive: a ~40-line change beat the ranking model on redemption, 3.1pp to 0.8pp. Flagged a 0.4pp opt-out rise as a cost outside the team's metrics.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="entry">
+      <div class="row">
+        <div><span class="role">ClipPrompt</span> — <span class="org">open-source macOS utility</span></div>
+        <div class="when">Aug 2026 – Sep 2026</div>
+      </div>
+      <div class="tech">Swift, SwiftUI, AppKit, URLSession</div>
+      <ul>
+        <li>Released a macOS tool that routes clipboard contents through a saved prompt-and-model recipe against the Anthropic and OpenAI APIs, with a chat window for iterating on near misses.</li>
+        <li>Implemented the menu-bar client in SwiftUI over AppKit with a Carbon-backed global hotkey and URLSession streaming, so answers arrive incrementally and each turn overwrites the clipboard.</li>
+        <li>Refuses clipboard content marked concealed by password managers, caps payload size, and keeps API keys in the Keychain rather than the config file.</li>
+        <li>Daily driver with ~12 outside users and 71 GitHub stars, built across three weekends largely with a coding agent; shipped a next-day fix for an externally reported size-cap bug.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume optimization with a coding agent — COMP 608</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --accent: #0b4f8a;
+    --rule: #cfcfcf;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+
+  body {
+    background: #4a4a4a;
+    font-family: "Helvetica Neue", Arial, "Segoe UI", system-ui, sans-serif;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+  }
+
+  .frame {
+    min-height: 100vh;
+    scroll-snap-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slide {
+    width: min(94vw, 170vh);
+    aspect-ratio: 16 / 9;
+    background: #fff;
+    color: var(--ink);
+    padding: 6.5cqw 7cqw 5cqw;
+    container-type: size;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0,0,0,.4);
+  }
+
+  h2 {
+    font-size: 6.2cqh;
+    line-height: 1.15;
+    font-weight: 700;
+    margin: 0 0 3.2cqh;
+    padding-bottom: 2.2cqh;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  ul { margin: 0; padding-left: 4cqw; }
+
+  li {
+    font-size: 4.4cqh;
+    line-height: 1.4;
+    margin-bottom: 2.2cqh;
+  }
+
+  li::marker { color: var(--accent); }
+
+  li ul { margin-top: 1.6cqh; padding-left: 3.2cqw; }
+  li li {
+    font-size: 3.7cqh;
+    color: var(--muted);
+    margin-bottom: 1.3cqh;
+  }
+  li li::marker { color: var(--muted); }
+
+  .title h1 {
+    font-size: 9cqh;
+    line-height: 1.12;
+    font-weight: 700;
+    margin: 0 0 2.4cqh;
+  }
+
+  .title .premise {
+    font-size: 4.6cqh;
+    color: var(--muted);
+    margin-bottom: 7cqh;
+  }
+
+  .title .link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 4.6cqh;
+    color: var(--accent);
+    border-top: 2px solid var(--accent);
+    padding-top: 3cqh;
+    display: inline-block;
+  }
+
+  .title .foot {
+    position: absolute;
+    bottom: 5cqh;
+    left: 7cqw;
+    right: 7cqw;
+    font-size: 3.2cqh;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .slide.title { display: flex; flex-direction: column; justify-content: center; }
+
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: .86em;
+    background: #f0f2f5;
+    color: var(--accent);
+    padding: .08em .3em;
+    border-radius: 3px;
+  }
+
+  .num {
+    position: absolute;
+    bottom: 3.4cqh;
+    right: 7cqw;
+    font-size: 3cqh;
+    color: var(--muted);
+  }
+
+  @page { size: landscape; margin: 0; }
+
+  @media print {
+    body { background: #fff; scroll-snap-type: none; }
+    .frame { min-height: 0; display: block; page-break-after: always; }
+    .slide { width: 100%; height: 100vh; aspect-ratio: auto; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="frame"><div class="slide title">
+  <h1>JD-specific resume optimization<br>via coding agent</h1>
+  <div class="premise">Same experience bank, a different resume for each posting.</div>
+  <div><span class="link">github.com/henryzhongsc/comp608_resume_via_agent</span></div>
+  <div class="foot"><span>COMP 608</span><span>Henry Zhong &middot; Mary Glavan</span></div>
+</div></div>
+
+<div class="frame"><div class="slide">
+  <h2>Why optimize a resume against a job description</h2>
+  <ul>
+    <li>A job description often describes the real role poorly.</li>
+    <li>HR teams and automated screening systems still rely on it heavily.</li>
+    <li>Screening is increasingly AI-powered, so the wording of a resume matters more every year.</li>
+    <li>A qualified candidate can be filtered out over wording rather than over ability.</li>
+    <li>Early-career applicants lose the most, because they have the least track record to compensate with.</li>
+  </ul>
+  <div class="num">1</div>
+</div></div>
+
+<div class="frame"><div class="slide">
+  <h2>Why use a coding agent</h2>
+  <ul>
+    <li>Commercial services such as Jobright already optimize a resume in one click.</li>
+    <li>One click produces one output, with no control over it and no room to refine it.</li>
+    <li>A coding agent can revise the same resume repeatedly until it is right.</li>
+    <li>The differences between versions show how you read each job, and they are worth keeping.</li>
+    <li>A git repo records every version, while a third-party service does not.</li>
+    <li>Most of you already pay for a coding plan.</li>
+  </ul>
+  <div class="num">2</div>
+</div></div>
+
+<div class="frame"><div class="slide">
+  <h2>You need a detailed experience bank first</h2>
+  <ul>
+    <li>An agent can only use experience that you have written down somewhere.</li>
+    <li>The pre-class assignment exists to build that written record.</li>
+    <li>Many resumes over-focus on the numbers and tech stack the writer wants to show off.</li>
+    <li>That focus loses the problem being solved, the scope that was owned, and what the work shows about the person.</li>
+    <li>Recording everything in detail lets the agent decide what belongs on the page.</li>
+  </ul>
+  <div class="num">3</div>
+</div></div>
+
+<div class="frame"><div class="slide">
+  <h2>How to run this</h2>
+  <ul>
+    <li>Clone the repo: <code>github.com/henryzhongsc/comp608_resume_via_agent</code></li>
+    <li>Read the readme and inspect how the repo is organized.</li>
+    <li>Replace the example experiences and projects with your own.</li>
+    <li>Define the constants for each experience and project.</li>
+    <li>Replace the example job descriptions with postings you care about.</li>
+    <li>Inspect the <code>/optimize-against-jd</code> skill, then run it on a few of those postings.</li>
+    <li>Push the repo to GitHub, and set it to private.</li>
+  </ul>
+  <div class="num">4</div>
+</div></div>
+
+<div class="frame"><div class="slide">
+  <h2>Why a skill, and why constants</h2>
+  <ul>
+    <li>Targeting a resume is a repeated task, so the instructions belong in a reusable skill.
+      <ul>
+        <li>Every run is a chance to improve the instructions in that skill.</li>
+      </ul>
+    </li>
+    <li>Constants declare what must appear no matter which job is targeted.
+      <ul>
+        <li>This repo declares them per experience and per project.</li>
+        <li>They can also decide which experiences and projects appear at all.</li>
+      </ul>
+    </li>
+    <li>Several constant sets can be prepared and passed to the skill as an input.</li>
+  </ul>
+  <div class="num">5</div>
+</div></div>
+
+<script>
+  addEventListener("keydown", e => {
+    const s = [...document.querySelectorAll(".frame")];
+    const i = s.findIndex(f => f.getBoundingClientRect().top > -window.innerHeight / 2);
+    const go = n => s[Math.max(0, Math.min(n, s.length - 1))]?.scrollIntoView({behavior: "smooth"});
+    if ([" ", "ArrowRight", "ArrowDown", "PageDown"].includes(e.key)) { e.preventDefault(); go(i + 1); }
+    if (["ArrowLeft", "ArrowUp", "PageUp"].includes(e.key)) { e.preventDefault(); go(i - 1); }
+  });
+</script>
+</body>
+</html>
