@@ -176,15 +176,22 @@
 </div></div>
 
 <div class="frame"><div class="slide">
-  <h2>How to run this</h2>
+  <h2>What to do today</h2>
   <ul>
-    <li>Clone the repo: <code>github.com/henryzhongsc/comp608_resume_via_agent</code></li>
-    <li>Read the readme and inspect how the repo is organized.</li>
-    <li>Replace the example experiences and projects with your own.</li>
-    <li>Define the constants for each experience and project.</li>
-    <li>Replace the example job descriptions with postings you care about.</li>
-    <li>Inspect the <code>/optimize-against-jd</code> skill, then run it on a few of those postings.</li>
-    <li>Push the repo to GitHub, and set it to private.</li>
+    <li>Objective 1: run the loop on Fred&rsquo;s material.
+      <ul>
+        <li>Clone the repo and read the readme: <code>github.com/henryzhongsc/comp608_resume_via_agent</code> &mdash; set it to private if you wish.</li>
+        <li>Add a job description you are actually applying to under <code>jd/</code>.</li>
+        <li>Fire up a coding agent such as Claude Code, run <code>/optimize-against-jd</code> on that posting, and compare the result against the other resumes.</li>
+      </ul>
+    </li>
+    <li>Objective 2: replace Fred with yourself.
+      <ul>
+        <li>Replace the identity, experiences, and projects under <code>raw_info/</code> with your own, and define the constants for each.</li>
+        <li>Run the skill again to get a real resume. Unfinished is fine.</li>
+        <li>Judge whether the result is what you want. If it is not, iterate with the agent, and fold what you learn back into the <code>/optimize-against-jd</code> skill.</li>
+      </ul>
+    </li>
   </ul>
   <div class="num">4</div>
 </div></div>
